@@ -8,7 +8,11 @@
             <mutation name="test function"></mutation>
             <next>
               <block type="unittest_assertequals" inline="false">
-                <field name="MESSAGE">test recurse</field>
+                <value name="MESSAGE">
+                   <block type="text">
+                     <field name="TEXT">test recurse</field>
+                   </block>
+                 </value>
                 <value name="ACTUAL">
                   <block type="procedures_callreturn" inline="false">
                     <mutation name="recurse">
@@ -34,7 +38,6 @@
     </statement>
   </block>
   <block type="procedures_defnoreturn" x="-3" y="249">
-    <mutation></mutation>
     <field name="NAME">test procedure</field>
     <statement name="STACK">
       <block type="procedures_callnoreturn" inline="false">
@@ -54,7 +57,11 @@
         </value>
         <next>
           <block type="unittest_assertequals" inline="false">
-            <field name="MESSAGE">procedure with global</field>
+            <value name="MESSAGE">
+               <block type="text">
+                 <field name="TEXT">procedure with global</field>
+               </block>
+             </value>
             <value name="ACTUAL">
               <block type="variables_get">
                 <field name="VAR">proc z</field>
@@ -85,7 +92,11 @@
                     </value>
                     <next>
                       <block type="unittest_assertvalue" inline="false">
-                        <field name="MESSAGE">procedure no return</field>
+                        <value name="MESSAGE">
+                           <block type="text">
+                             <field name="TEXT">procedure no return</field>
+                           </block>
+                         </value>
                         <field name="EXPECTED">TRUE</field>
                         <value name="ACTUAL">
                           <block type="variables_get">
@@ -112,7 +123,11 @@
                                 </value>
                                 <next>
                                   <block type="unittest_assertvalue" inline="false">
-                                    <field name="MESSAGE">procedure return</field>
+                                    <value name="MESSAGE">
+                                       <block type="text">
+                                         <field name="TEXT">procedure return</field>
+                                       </block>
+                                     </value>
                                     <field name="EXPECTED">FALSE</field>
                                     <value name="ACTUAL">
                                       <block type="variables_get">
@@ -146,7 +161,7 @@
       <block type="variables_set" inline="false">
         <field name="VAR">proc z</field>
         <value name="VALUE">
-          <block type="math_arithmetic" inline="true">
+          <block type="math_arithmetic">
             <field name="OP">DIVIDE</field>
             <value name="A">
               <block type="variables_get">
@@ -169,7 +184,7 @@
     </mutation>
     <field name="NAME">procedure 2</field>
     <statement name="STACK">
-      <block type="procedures_ifreturn" inline="true">
+      <block type="procedures_ifreturn">
         <mutation value="0"></mutation>
         <value name="CONDITION">
           <block type="variables_get">
@@ -190,11 +205,14 @@
     </statement>
   </block>
   <block type="procedures_defnoreturn" x="-2" y="731">
-    <mutation></mutation>
     <field name="NAME">test function</field>
     <statement name="STACK">
       <block type="unittest_assertequals" inline="false">
-        <field name="MESSAGE">function with arguments</field>
+        <value name="MESSAGE">
+           <block type="text">
+             <field name="TEXT">function with arguments</field>
+           </block>
+         </value>
         <value name="ACTUAL">
           <block type="procedures_callreturn" inline="false">
             <mutation name="function 1">
@@ -220,7 +238,11 @@
         </value>
         <next>
           <block type="unittest_assertequals" inline="false">
-            <field name="MESSAGE">function with side effect</field>
+            <value name="MESSAGE">
+               <block type="text">
+                 <field name="TEXT">function with side effect</field>
+               </block>
+             </value>
             <value name="ACTUAL">
               <block type="variables_get">
                 <field name="VAR">func z</field>
@@ -249,7 +271,11 @@
                     </value>
                     <next>
                       <block type="unittest_assertequals" inline="false">
-                        <field name="MESSAGE">function with global</field>
+                        <value name="MESSAGE">
+                           <block type="text">
+                             <field name="TEXT">function with global</field>
+                           </block>
+                         </value>
                         <value name="ACTUAL">
                           <block type="procedures_callreturn" inline="false">
                             <mutation name="function 2">
@@ -269,7 +295,11 @@
                         </value>
                         <next>
                           <block type="unittest_assertequals" inline="false">
-                            <field name="MESSAGE">function with scope</field>
+                            <value name="MESSAGE">
+                               <block type="text">
+                                 <field name="TEXT">function with scope</field>
+                               </block>
+                             </value>
                             <value name="ACTUAL">
                               <block type="variables_get">
                                 <field name="VAR">func a</field>
@@ -282,7 +312,11 @@
                             </value>
                             <next>
                               <block type="unittest_assertvalue" inline="false">
-                                <field name="MESSAGE">function return</field>
+                                <value name="MESSAGE">
+                                   <block type="text">
+                                     <field name="TEXT">function return</field>
+                                   </block>
+                                 </value>
                                 <field name="EXPECTED">TRUE</field>
                                 <value name="ACTUAL">
                                   <block type="procedures_callreturn" inline="false">
@@ -298,7 +332,11 @@
                                 </value>
                                 <next>
                                   <block type="unittest_assertvalue" inline="false">
-                                    <field name="MESSAGE">function no return</field>
+                                    <value name="MESSAGE">
+                                       <block type="text">
+                                         <field name="TEXT">function no return</field>
+                                       </block>
+                                     </value>
                                     <field name="EXPECTED">FALSE</field>
                                     <value name="ACTUAL">
                                       <block type="procedures_callreturn" inline="false">
@@ -346,7 +384,7 @@
       </block>
     </statement>
     <value name="RETURN">
-      <block type="math_arithmetic" inline="true">
+      <block type="math_arithmetic">
         <field name="OP">MINUS</field>
         <value name="A">
           <block type="variables_get">
@@ -398,7 +436,7 @@
     </mutation>
     <field name="NAME">function 3</field>
     <statement name="STACK">
-      <block type="procedures_ifreturn" inline="true">
+      <block type="procedures_ifreturn">
         <mutation value="1"></mutation>
         <value name="CONDITION">
           <block type="variables_get">
@@ -427,7 +465,7 @@
       <block type="controls_if" inline="false">
         <mutation else="1"></mutation>
         <value name="IF0">
-          <block type="logic_compare" inline="true">
+          <block type="logic_compare">
             <field name="OP">GT</field>
             <value name="A">
               <block type="variables_get">
@@ -453,7 +491,7 @@
                       <arg name="n"></arg>
                     </mutation>
                     <value name="ARG0">
-                      <block type="math_arithmetic" inline="true">
+                      <block type="math_arithmetic">
                         <field name="OP">MINUS</field>
                         <value name="A">
                           <block type="variables_get">
@@ -480,7 +518,7 @@
                       <arg name="n"></arg>
                     </mutation>
                     <value name="ARG0">
-                      <block type="math_arithmetic" inline="true">
+                      <block type="math_arithmetic">
                         <field name="OP">MINUS</field>
                         <value name="A">
                           <block type="variables_get">
